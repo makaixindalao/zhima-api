@@ -24,11 +24,40 @@ body.sidebar-collapsed {
   --sidebar-current-width: var(--sidebar-width-collapsed);
 }
 
+/* HappyCode 暖棕主色覆盖 - mkx 2026-03-11
+   必须放在 body 选择器上，因为 Semi Design 在 @layer semi 中用 body 定义变量，
+   无 layer 的 body 覆盖 > @layer semi 中的 body 定义 */
 body {
+  --semi-color-primary: #c4714e;
+  --semi-color-primary-hover: #b5654a;
+  --semi-color-primary-active: #a55a42;
+  --semi-color-primary-disabled: rgba(196, 113, 78, 0.4);
+  --semi-color-primary-light-default: rgba(196, 113, 78, 0.08);
+  --semi-color-primary-light-hover: rgba(196, 113, 78, 0.15);
+  --semi-color-primary-light-active: rgba(196, 113, 78, 0.22);
+  --semi-color-link: #c4714e;
+  --semi-color-link-hover: #b5654a;
+  --semi-color-link-active: #a55a42;
+  --semi-color-focus-border: rgba(196, 113, 78, 0.5);
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, 'Microsoft YaHei',
     sans-serif;
   color: var(--semi-color-text-0);
   background-color: var(--semi-color-bg-0);
+}
+
+/* HappyCode 暗黑模式主色适配 - mkx 2026-03-11 */
+body[theme-mode="dark"] {
+  --semi-color-primary: #d4896a;
+  --semi-color-primary-hover: #c4714e;
+  --semi-color-primary-active: #b5654a;
+  --semi-color-primary-disabled: rgba(212, 137, 106, 0.4);
+  --semi-color-primary-light-default: rgba(212, 137, 106, 0.12);
+  --semi-color-primary-light-hover: rgba(212, 137, 106, 0.20);
+  --semi-color-primary-light-active: rgba(212, 137, 106, 0.28);
+  --semi-color-link: #d4896a;
+  --semi-color-link-hover: #c4714e;
+  --semi-color-link-active: #b5654a;
+  --semi-color-focus-border: rgba(212, 137, 106, 0.5);
 }
 
 .app-layout {
@@ -149,12 +178,12 @@ code {
 }
 
 .sidebar-nav-item:hover {
-  background-color: rgba(var(--semi-blue-0), 0.08);
+  background-color: var(--semi-color-primary-light-hover);
   color: var(--semi-color-primary);
 }
 
 .sidebar-nav-item-selected {
-  background-color: rgba(var(--semi-blue-0), 0.12);
+  background-color: var(--semi-color-primary-light-active);
   color: var(--semi-color-primary);
   font-weight: 500;
 }
@@ -748,8 +777,8 @@ html.dark .sbg-variant-green {
 }
 
 .blur-ball-indigo {
-  background: #6366f1;
-  /* indigo-500 */
+  background: #c4714e;
+  /* HappyCode 暖棕主色 */
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
@@ -757,8 +786,8 @@ html.dark .sbg-variant-green {
 }
 
 .blur-ball-teal {
-  background: #14b8a6;
-  /* teal-400 */
+  background: #d4896a;
+  /* HappyCode 暖棕辅色 */
   top: 200px;
   left: 30%;
   opacity: 0.4;
@@ -970,4 +999,13 @@ html.dark .with-pastel-balls::before {
 .semi-button,
 .semi-datepicker-range-input {
   border-radius: 10px !important;
+}
+
+/* HappyCode 卡片 hover 浮起效果 - mkx 2026-03-10 */
+.card-hover-elevate {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card-hover-elevate:hover {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+  transform: translateY(-1px);
 }

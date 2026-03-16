@@ -2,7 +2,7 @@
 
 ![new-api](/web/public/logo.png)
 
-# New API
+# zhima api
 
 🍥 **新一代大模型網關與AI資產管理系統**
 
@@ -38,7 +38,7 @@
     <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=539ac4217e69431684ad4a0bab768811&claim_uid=tbFPfKIDHpc4TzR" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" />
   </a>
   <a href="https://www.producthunt.com/products/new-api/launches/new-api?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-new-api" target="_blank" rel="noopener noreferrer">
-    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1047693&theme=light&t=1769577875005" alt="New API - All-in-one AI asset management gateway. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
+    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1047693&theme=light&t=1769577875005" alt="zhima api - All-in-one AI asset management gateway. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
   </a>
 </p>
 
@@ -107,7 +107,7 @@
 
 ```bash
 # 複製項目
-git clone https://github.com/QuantumNous/new-api.git
+git clone https://github.com/makaixindalao/zhima-api.git.git
 cd new-api
 
 # 編輯 docker-compose.yml 配置
@@ -333,7 +333,7 @@ docker run --name new-api -d --restart always \
 
 ```bash
 # 複製項目
-git clone https://github.com/QuantumNous/new-api.git
+git clone https://github.com/makaixindalao/zhima-api.git.git
 cd new-api
 
 # 編輯配置
@@ -414,7 +414,7 @@ docker run --name new-api -d --restart always \
 | 項目 | 說明 |
 |------|------|
 | [neko-api-key-tool](https://github.com/Calcium-Ion/neko-api-key-tool) | Key 額度查詢工具 |
-| [new-api-horizon](https://github.com/Calcium-Ion/new-api-horizon) | New API 高性能優化版 |
+| [new-api-horizon](https://github.com/Calcium-Ion/new-api-horizon) | zhima api 高性能優化版 |
 
 ---
 
@@ -462,7 +462,7 @@ docker run --name new-api -d --restart always \
 
 <div align="center">
 
-### 💖 感謝使用 New API
+### 💖 感謝使用 zhima api
 
 如果這個項目對你有幫助，歡迎給我們一個 ⭐️ Star！
 

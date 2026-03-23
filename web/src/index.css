@@ -740,6 +740,255 @@ html.dark .sbg-variant-green {
   -webkit-text-fill-color: transparent;
 }
 
+/* ==================== Hero Badge 入场动画 - mkx 2026-03-22 ==================== */
+@keyframes hero-badge-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-badge-animate {
+  animation: hero-badge-in 0.6s ease-out both;
+}
+
+/* ==================== Hero 分步入场动画 - mkx 2026-03-23 ==================== */
+@keyframes hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-stagger-1 { animation: hero-fade-up 0.7s ease-out both; animation-delay: 0ms; }
+.hero-stagger-2 { animation: hero-fade-up 0.7s ease-out both; animation-delay: 150ms; }
+.hero-stagger-3 { animation: hero-fade-up 0.7s ease-out both; animation-delay: 300ms; }
+.hero-stagger-4 { animation: hero-fade-up 0.7s ease-out both; animation-delay: 450ms; }
+.hero-stagger-5 { animation: hero-fade-up 0.7s ease-out both; animation-delay: 600ms; }
+
+/* ==================== 统计数字清晰化动画 - mkx 2026-03-23 ==================== */
+@keyframes stat-resolve {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.stat-number-resolve {
+  animation: stat-resolve 0.8s ease-out both;
+}
+
+/* ==================== 特性卡片玻璃态 - mkx 2026-03-23 ==================== */
+.feature-card-glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+html.dark .feature-card-glass {
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-card-glass:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+html.dark .feature-card-glass:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* 悬浮彩色光晕 */
+.feature-card-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.feature-card-glass:hover::after {
+  opacity: 1;
+}
+
+.feature-card-glass[data-glow="blue"]::after {
+  background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.12), transparent 70%);
+}
+
+.feature-card-glass[data-glow="emerald"]::after {
+  background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.12), transparent 70%);
+}
+
+.feature-card-glass[data-glow="amber"]::after {
+  background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.12), transparent 70%);
+}
+
+.feature-card-glass[data-glow="violet"]::after {
+  background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.12), transparent 70%);
+}
+
+/* 图标微动画 */
+.feature-icon {
+  transition: transform 0.25s ease;
+}
+
+.feature-card-glass:hover .feature-icon {
+  transform: scale(1.12);
+}
+
+/* ==================== 合作伙伴跑马灯 - mkx 2026-03-23 ==================== */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /* 两侧渐隐遮罩 */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee-scroll-reverse 30s linear infinite;
+}
+
+.marquee-container:hover .marquee-track,
+.marquee-container:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* ==================== 工作流连接线动画 - mkx 2026-03-23 ==================== */
+@keyframes line-draw {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+.workflow-line {
+  height: 2px;
+  background: linear-gradient(90deg, var(--semi-color-primary), rgba(196, 113, 78, 0.2));
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.workflow-line-animate {
+  animation: line-draw 0.8s ease-out forwards;
+}
+
+/* 步骤编号入场 */
+@keyframes step-number-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.step-number-animate {
+  animation: step-number-in 0.6s ease-out both;
+}
+
+/* ==================== CTA 按钮脉冲 - mkx 2026-03-23 ==================== */
+@keyframes cta-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(196, 113, 78, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(196, 113, 78, 0.2);
+  }
+}
+
+.cta-pulse-button {
+  animation: cta-glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* ==================== CTA 背景渐变漂移 - mkx 2026-03-23 ==================== */
+@keyframes mesh-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta-mesh-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(196, 113, 78, 0.05) 0%,
+    rgba(212, 137, 106, 0.08) 25%,
+    transparent 50%,
+    rgba(196, 113, 78, 0.05) 75%,
+    rgba(212, 137, 106, 0.08) 100%
+  );
+  background-size: 200% 200%;
+  animation: mesh-drift 12s ease infinite;
+}
+
+html.dark .cta-mesh-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 137, 106, 0.08) 0%,
+    rgba(196, 113, 78, 0.12) 25%,
+    transparent 50%,
+    rgba(212, 137, 106, 0.08) 75%,
+    rgba(196, 113, 78, 0.12) 100%
+  );
+  background-size: 200% 200%;
+  animation: mesh-drift 12s ease infinite;
+}
+
+/* ==================== 背景球漂浮动画 - mkx 2026-03-23 ==================== */
+@keyframes blur-ball-drift-1 {
+  0%, 100% { transform: translateX(-50%) translate(0, 0); }
+  33% { transform: translateX(-50%) translate(30px, -20px); }
+  66% { transform: translateX(-50%) translate(-20px, 15px); }
+}
+
+@keyframes blur-ball-drift-2 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-25px, 20px); }
+  66% { transform: translate(20px, -15px); }
+}
+
 /* ==================== ScrollList 定制样式 ==================== */
 .semi-scrolllist,
 .semi-scrolllist * {
@@ -783,6 +1032,7 @@ html.dark .sbg-variant-green {
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.5;
+  animation: blur-ball-drift-1 18s ease-in-out infinite;
 }
 
 .blur-ball-teal {
@@ -791,6 +1041,7 @@ html.dark .sbg-variant-green {
   top: 200px;
   left: 30%;
   opacity: 0.4;
+  animation: blur-ball-drift-2 22s ease-in-out infinite;
 }
 
 /* 浅色主题下让模糊球更柔和 */
@@ -1008,4 +1259,13 @@ html.dark .with-pastel-balls::before {
 .card-hover-elevate:hover {
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
   transform: translateY(-1px);
+}
+
+/* ==================== 无障碍: 禁用动画 - mkx 2026-03-23 ==================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
